@@ -82,8 +82,13 @@ public class DemoControllerTest {
     
     @Test
     void putReturnStatus() throws Exception {
-    	mockMvc.perform(put("/sayHello"))
-    			.andExpect(status().isOk());
+        mockMvc.perform(put("/sayHello/{lastName}","Saraf"))
+                .andExpect(status().isCreated());
     }
     
+    @Test
+    void deleteReturnStatus() throws Exception {
+        mockMvc.perform(delete("/sayHello/{firstName}","Test"))
+                .andExpect(content().string("FirstName is delete"));
+    }
 }
