@@ -40,4 +40,11 @@ public class DemoController {
     	
     }
     
+    @DeleteMapping("sayHello/{firstName}")
+    public ResponseEntity deleteRecord(@PathVariable("firstName") String firstName) {
+    	URI defaultUri = URI.create("http://google.com");
+		return ResponseEntity.created(defaultUri).body("FirstName is delete");
+    	
+    }
+    
 }
